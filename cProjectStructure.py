@@ -3,7 +3,7 @@ import fileClass
 
 VALID_EXTENSIONS = ['.c', '.h', '.cpp', '.hpp', '.s', '.S']
 
-def cGetFileNodesFromFolder(pathToFolder):
+def getFileNodesFromFolder(pathToFolder):
     result = []
     for dirPath, dirNames, dirFiles in os.walk(pathToFolder):
         for i in dirFiles:
