@@ -16,4 +16,4 @@ class FileNode:
         self.children = children
         self.isExternal = isExternal
     def __str__(self):
-        return "{node name: " + self.file.name + "with children: " + str([i.file.name for i in self.children]) + "}"
+        return "{node name: " + self.file.name + " with children: " + str([i.file.name for i in self.children]) + "}"
