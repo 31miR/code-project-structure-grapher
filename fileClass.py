@@ -7,3 +7,8 @@ class File:
         if (len(parts) < 2):
             return "NO EXTENSION"
         return parts[-1]
+
+class FileNode:
+    def __init__(self, currentFile, children):
+        self.file = currentFile
+        self.children = children
