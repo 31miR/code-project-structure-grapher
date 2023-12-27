@@ -9,6 +9,7 @@ class File:
         return parts[-1]
 
 class FileNode:
-    def __init__(self, currentFile, children):
+    def __init__(self, currentFile, children, isExternal = False):
         self.file = currentFile
         self.children = children
+        self.isExternal = isExternal
