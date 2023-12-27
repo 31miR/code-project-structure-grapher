@@ -1,7 +1,7 @@
 import os
 import fileClass
 
-VALID_EXTENSIONS = ['.c', '.h', '.cpp', '.hpp', '.s', '.S']
+VALID_EXTENSIONS = ['c', 'h', 'cpp', 'hpp', 's', 'S']
 
 def getFileNodesFromFolder(pathToFolder):
     result = []
