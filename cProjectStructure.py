@@ -32,3 +32,38 @@ def getChildNamesFromFile(file_path):
             result.append(path[-1])
     file.close()
     return result
+
+def isNameInNodeList(name, nodeList):
+    for i in nodeList:
+        if name == i.file.name:
+            return True
+    return False
+
+def getNodeFromNodeList(name, nodeList):
+    if not isNameInNodeList(name, nodeList):
+        raise Exception("There is no node with name:", name, "in a list of nodes that was given to the function")
+    for i in nodeList:
+        if name == i.file.name:
+            return i
+
+def setInitialChildren(nodeList):
+    externals = []
+    for node in nodeList:
+        children = []
+        childNames = getChildNamesFromFile(node.file.path+'/'+node.file.name)
+        #This ugly part of code searches for external dependencies and makes nodes for them too
+        externalNames = []
+        for i in childNames:
+            if not isNameInNodeList(i, nodeList):
+                externalNames.append(i)
+        for i in externalNames:
+            if not isNameInNodeList(i, externals):
+                externals.append(fileClass.FileNode(fileClass.File("!UNKNONWN", i), [], True))
+        #End of that thing (I could've made a function just for this but I'm trying to avoid calling
+        #getChildNamesFromFile again)
+        for i in childNames:
+            if isNameInNodeList(i, nodeList):
+                children.append(getNodeFromNodeList(i, nodeList))
+            else:
+                children.append(getNodeFromNodeList(i, externals))
+        node.children = children
