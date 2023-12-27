@@ -67,3 +67,7 @@ def setInitialChildren(nodeList):
             else:
                 children.append(getNodeFromNodeList(i, externals))
         node.children = children
+    nodeList.extend(externals)
+    #I realize as of writing line above that externals should have been inside nodeList
+    #from the beginning and it would make this function even simpler
+    #TODO, what I just said xd
