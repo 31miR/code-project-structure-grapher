@@ -1,4 +1,5 @@
 import cProjectStructure
+import graphics
 
 #main guard in case this program is also [for some weird reason] used as a library
 def main():
@@ -7,8 +8,8 @@ def main():
     rel_path = str(input('path:'))
     nodes = cProjectStructure.getFileNodesFromFolder(rel_path)
     cProjectStructure.setInitialChildren(nodes)
-    for i in nodes:
-        print(i)
+    graphics.drawNodeList(nodes)
+    graphics.produce("nodes.html")
     return 0
 
 if __name__ == '__main__':
