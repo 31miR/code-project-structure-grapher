@@ -34,5 +34,6 @@ def produce(fileName, allow_options = False):
     if allow_options:
         NETWORK.show_buttons()
     NETWORK.hrepulsion()
+    NETWORK.options.layout.hierarchical.sortMethod = 'directed'
     NETWORK.toggle_physics(False)
     NETWORK.show(fileName, notebook=False)
